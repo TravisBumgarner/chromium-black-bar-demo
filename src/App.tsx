@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import  { useState, useRef } from 'react';
+import Record from './Record';
+import Play from './Play';
+import './App.css'
 
 function App() {
+  const [recording, setRecording] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <strong>Instructions</strong>
+      <li>
+        <li>Click "Start Recording" to start recording</li>
+        <li>Click "Stop Recording" to stop recording</li>
+        <li>Drag and drop the .webm file into the box to play the video</li>
+        </li>
+      <Record />
+      <Play />
     </div>
   );
 }
